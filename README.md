@@ -60,7 +60,7 @@ http://localhost/git/public/admin
 ```
 ```
 body: 
-    username : 
-    or,Email :anamit08@gmail.com
-    password: 
+    username : akash
+    or,Email : akash@gmail.com
+    password : akash
 ```
