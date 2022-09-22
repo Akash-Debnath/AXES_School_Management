@@ -30,8 +30,6 @@ use App\Http\Controllers\Backend\Website\Visitorsays\VisitorsaysController;
 use App\Http\Controllers\Backend\Frontoffice\AdmissionEnquiryController;
 use App\Http\Controllers\Backend\Frontoffice\ComplainController;
 use App\Http\Controllers\Backend\Frontoffice\PhoneCallLogController;
-use App\Http\Controllers\Backend\Frontoffice\PostalReceiveController;
-use App\Http\Controllers\Backend\Frontoffice\PostalDispatchController;
 use App\Http\Controllers\Backend\Frontoffice\SetupFrontOfficeController;
 use App\Http\Controllers\Backend\Frontoffice\VisitorBookController;
 
@@ -484,35 +482,6 @@ Route::put('visitorsays/update/{id}', [VisitorsaysController::class, 'Visitorsay
 
 Route::get('visitorsays/delete/{id}', [VisitorsaysController::class, 'VisitorsaysDelete'])->name('visitorsays.delete');
 
-
-//PosatalReceive FrontOffice Routes 
-
-Route::get('postalreceive/view', [PostalReceiveController::class, 'ViewPostalReceive'])->name('postalreceive.view');
-
-Route::get('postalreceive/add', [PostalReceiveController::class, 'PostalReceiveAdd'])->name('postalreceive.add');
-
-Route::post('postalreceive/store', [PostalReceiveController::class, 'PostalReceiveStore'])->name('store.postalreceive');
-
-Route::get('postalreceive/edit/{id}', [PostalReceiveController::class, 'PostalReceiveEdit'])->name('postalreceive.edit');
-
-Route::post('postalreceive/update/{id}', [PostalReceiveController::class, 'PostalReceiveUpdate'])->name('update.postalreceive');
-
-Route::get('postalreceive/delete/{id}', [PostalReceiveController::class, 'PostalReceiveDelete'])->name('postalreceive.delete');
-
-
-//PostalDispatch FrontOffice Routes 
-
-Route::get('postaldispatch/view', [PostalDispatchController::class, 'ViewPostalDispatch'])->name('postaldispatch.view');
-
-Route::get('postaldispatch/add', [PostalDispatchController::class, 'PostalDispatchAdd'])->name('postaldispatch.add');
-
-Route::post('postaldispatch/store', [PostalDispatchController::class, 'PostalDispatchStore'])->name('store.postaldispatch');
-
-Route::get('postaldispatch/edit/{id}', [PostalDispatchController::class, 'PostalDispatchEdit'])->name('postaldispatch.edit');
-
-Route::put('postaldispatch/update/{id}', [PostalDispatchController::class, 'PostalDispatchUpdate'])->name('update.postaldispatch');
-
-Route::get('postaldispatch/delete/{id}', [PostalDispatchController::class, 'PostalDispatchDelete'])->name('postaldispatch.delete');
 
 
 //SetupFrontOffice FrontOffice Routes 

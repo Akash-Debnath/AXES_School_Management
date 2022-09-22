@@ -31,6 +31,53 @@
                     </a>
                 </li>
 
+                <li class="treeview {{ ($prefix == '/frontoffice')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="credit-card"></i> <span>Admin Section</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                    
+                        <li class="{{ ($route == 'admissionenquiry.view')?'active':'' }}"><a href="{{ route('admissionenquiry.view') }}"><i class="ti-more"></i>Admission Enquiry</a></li>
+                        <li class="{{ ($route == 'visitorbook.view')?'active':'' }}"><a href="{{ route('visitorbook.view') }}"><i class="ti-more"></i>Visitor Book</a></li>
+                        <li class="{{ ($route == 'complain.view')?'active':'' }}"><a href="{{ route('complain.view') }}"><i class="ti-more"></i>Complaints</a></li>
+                        <li class="{{ ($route == 'phonecalllog.view')?'active':'' }}"><a href="{{ route('phonecalllog.view') }}"><i class="ti-more"></i>Phone Call Log</a></li>
+                        <li class="{{ ($route == 'setupfrontoffice.view')?'active':'' }}"><a href="{{ route('setupfrontoffice.view') }}"><i class="ti-more"></i>Admin Setup</a></li>
+                        <li class=""><a href=""><i class="ti-more"></i>Student Certificate</a></li>
+                        <li class=""><a href=""><i class="ti-more"></i>Generate Certificate</a></li>
+                        <li class="{{ ($route == 'student.idcard.view')?'active':'' }}"><a href="{{ route('student.idcard.view') }}"><i class="ti-more"></i>Student ID Card </a></li>  
+                        <li class=""><a href=""><i class="ti-more"></i>Generate ID Card</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview {{ ($prefix == '/students')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="credit-card"></i> <span>Student Information</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class=""><a href=""><i class="ti-more"></i>Student Category</a></li>
+                        <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Student List</a></li>
+                        <li><a href="{{ route('student.registration.add') }}"><i class="ti-more"></i>Add Student</a></li>
+                         <li class="{{ ($route == 'student.result.view')?'active':'' }}"><a href="{{ route('student.result.view') }}"><i class="ti-more"></i>Student Result </a></li>  
+              
+                        {{-- <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
+                        <li><a href="{{ route('setup.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
+                        <li><a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a></li>
+                        <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
+                        <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
+                        <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
+                        <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
+                        <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation </a></li> --}}
+                    </ul>
+                </li>
+
+
                 @if(Auth::user()->role == 'Admin')
                 <li class="treeview {{ ($prefix == '/users')?'active':'' }} ">
                     <a href="#">
@@ -91,32 +138,7 @@
                     </ul>
                 </li>
 
-               
-                <li class="treeview {{ ($prefix == '/students')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="credit-card"></i> <span>Student Information</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-right pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="{{ route('student.registration.view') }}"><i class="ti-more"></i>Students</a></li>
-                        <li><a href="{{ route('student.registration.add') }}"><i class="ti-more"></i>Add Student</a></li>
-                         <li class="{{ ($route == 'student.result.view')?'active':'' }}"><a href="{{ route('student.result.view') }}"><i class="ti-more"></i>Student Result </a></li>
-                         <li class="{{ ($route == 'student.idcard.view')?'active':'' }}"><a href="{{ route('student.idcard.view') }}"><i class="ti-more"></i>Student ID Card </a></li>    
-              
-                        {{-- <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
-                        <li><a href="{{ route('setup.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
-                        <li><a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a></li>
-                        <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
-                        <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
-                        <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
-                        <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
-                        <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation </a></li> --}}
-
-
-                    </ul>
-                </li>
+            
                 <!--<li class="treeview {{ ($prefix == '/marks')?'active':'' }}">-->
                 <!--        <a href="#">-->
                 <!--           <i data-feather="credit-card"></i> <span> Marks Management</span>-->
@@ -150,29 +172,6 @@
                         <li><a href="{{ route('department_changeList') }}"><i class="ti-more"></i>Department change</a></li>
                         <li><a href="{{ route('permission_list') }}"><i class="ti-more"></i>Permission</a></li>
                         <li><a href="{{ route('register_slip') }}"><i class="ti-more"></i>Register Slip</a></li>
-                    </ul>
-                </li>
-
-                                <li class="treeview {{ ($prefix == '/frontoffice')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="credit-card"></i> <span>Front Office</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-right pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                    
-                        <li class="{{ ($route == 'admissionenquiry.view')?'active':'' }}"><a href="{{ route('admissionenquiry.view') }}"><i class="ti-more"></i>Admission Enquiry</a></li>
-                        <li class="{{ ($route == 'visitorbook.view')?'active':'' }}"><a href="{{ route('visitorbook.view') }}"><i class="ti-more"></i>Visitor Book</a></li>
-                        <li class="{{ ($route == 'phonecalllog.view')?'active':'' }}"><a href="{{ route('phonecalllog.view') }}"><i class="ti-more"></i>Phone Call Log</a></li>
-                        <li class="{{ ($route == 'postaldispatch.view')?'active':'' }}"><a href="{{ route('postaldispatch.view') }}"><i class="ti-more"></i>Postal Dispatch</a></li>
-                        <li class="{{ ($route == 'postalreceive.view')?'active':'' }}"><a href="{{ route('postalreceive.view') }}"><i class="ti-more"></i>Postal Receive</a></li>
-                        <li class="{{ ($route == 'complain.view')?'active':'' }}"><a href="{{ route('complain.view') }}"><i class="ti-more"></i>Complain</a></li>
-                        <li class="{{ ($route == 'setupfrontoffice.view')?'active':'' }}"><a href="{{ route('setupfrontoffice.view') }}"><i class="ti-more"></i>Setup Front Office</a></li>
-
-
-
-
                     </ul>
                 </li>
               
