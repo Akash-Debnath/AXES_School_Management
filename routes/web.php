@@ -547,13 +547,18 @@ Route::get('/password/view', [ProfileController::class, 'PasswordView'])->name('
 Route::post('/password/update', [ProfileController::class, 'PasswordUpdate'])->name('password.update');
 
 }); 
-Route::prefix('notice')->group(function(){
+Route::prefix('communicate')->group(function(){
 
+//Notice routes
 Route::get('/view/list', [NoticeboardController::class, 'Noticeviewlist'])->name('notice.viewlist');
-
 Route::get('/notice/create',[NoticeboardController::class,'Noticecreate'])->name('notice.create');
 Route::post('/notice/store',[NoticeboardController::class,'noticestore'])->name('notice.store');
 Route::get('/delete/{id}', [NoticeboardController::class, 'noticeDelete'])->name('notice.delete');
+
+//Event routes
+Route::get('manage_events',[AlumniController::class,'manageEvents'])->name('manage_events');
+Route::get('new_event',[AlumniController::class,'newEvent'])->name('new_event');
+Route::get('delete_event,{id}',[AlumniController::class,'deleteEvent'])->name('delete_event');
 
 }); 
 
@@ -712,19 +717,19 @@ Route::post('student/year/update/{id}', [StudentYearController::class, 'StudentY
 Route::get('student/year/delete/{id}', [StudentYearController::class, 'StudentYearDelete'])->name('student.year.delete');
 
 
-// Student Group Routes 
+// // Student Group Routes 
 
-Route::get('student/group/view', [StudentGroupController::class, 'ViewGroup'])->name('student.group.view');
+// Route::get('student/group/view', [StudentGroupController::class, 'ViewGroup'])->name('student.group.view');
 
-Route::get('student/group/add', [StudentGroupController::class, 'StudentGroupAdd'])->name('student.group.add');
+// Route::get('student/group/add', [StudentGroupController::class, 'StudentGroupAdd'])->name('student.group.add');
 
-Route::post('student/group/store', [StudentGroupController::class, 'StudentGroupStore'])->name('store.student.group');
+// Route::post('student/group/store', [StudentGroupController::class, 'StudentGroupStore'])->name('store.student.group');
 
-Route::get('student/group/edit/{id}', [StudentGroupController::class, 'StudentGroupEdit'])->name('student.group.edit');
+// Route::get('student/group/edit/{id}', [StudentGroupController::class, 'StudentGroupEdit'])->name('student.group.edit');
 
-Route::post('student/group/update/{id}', [StudentGroupController::class, 'StudentGroupUpdate'])->name('update.student.group');
+// Route::post('student/group/update/{id}', [StudentGroupController::class, 'StudentGroupUpdate'])->name('update.student.group');
 
-Route::get('student/group/delete/{id}', [StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete');
+// Route::get('student/group/delete/{id}', [StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete');
 
 // Student Shift Routes 
 
@@ -799,20 +804,6 @@ Route::post('university/subject/update/{id}', [UniversitySubjectController::clas
 
 Route::get('university/subject/delete/{id}', [UniversitySubjectController::class, 'SubjectDelete'])->name('university.subject.delete');
 
-
-// Assign Subject Routes 
-
-Route::get('assign/subject/view', [AssignSubjectController::class, 'ViewAssignSubject'])->name('assign.subject.view');
-
-Route::get('assign/subject/add', [AssignSubjectController::class, 'AddAssignSubject'])->name('assign.subject.add');
-
-Route::post('assign/subject/store', [AssignSubjectController::class, 'StoreAssignSubject'])->name('store.assign.subject');
-
-Route::get('assign/subject/edit/{class_id}', [AssignSubjectController::class, 'EditAssignSubject'])->name('assign.subject.edit');
-
-Route::post('assign/subject/update/{class_id}', [AssignSubjectController::class, 'UpdateAssignSubject'])->name('update.assign.subject');
-
-Route::get('assign/subject/details/{class_id}', [AssignSubjectController::class, 'DetailsAssignSubject'])->name('assign.subject.details');
 
 
 // Designation All Routes 
@@ -994,6 +985,16 @@ Route::get('/reg/details/{student_id}', [StudentRegController::class, 'StudentRe
 Route::get('/reg/profile/{student_id}', [StudentRegController::class, 'StudentRegProfile'])->name('student.registration.view_profile');
 Route::get('/reg/delete/{student_id}', [StudentRegController::class, 'StudentRegDelete'])->name('student.registration.delete');
 
+
+// Student Group Routes 
+
+Route::get('student/group/view', [StudentGroupController::class, 'ViewGroup'])->name('student.group.view');
+Route::get('student/group/add', [StudentGroupController::class, 'StudentGroupAdd'])->name('student.group.add');
+Route::post('student/group/store', [StudentGroupController::class, 'StudentGroupStore'])->name('store.student.group');
+Route::get('student/group/edit/{id}', [StudentGroupController::class, 'StudentGroupEdit'])->name('student.group.edit');
+Route::post('student/group/update/{id}', [StudentGroupController::class, 'StudentGroupUpdate'])->name('update.student.group');
+Route::get('student/group/delete/{id}', [StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete');
+
 // Student Roll Generate Routes 
 Route::get('/roll/generate/view', [StudentRollController::class, 'StudentRollView'])->name('roll.generate.view');
 
@@ -1060,6 +1061,21 @@ Route::prefix('teacher')->group(function(){
     Route::get('/reg/delete/{teacher_id}', [TeacherRegController::class, 'TeacherRegDelete'])->name('teacher.registration.delete');
     
 }); 
+
+
+//Leave
+Route::prefix('leave')->group(function(){
+
+//Employee Leave Type Route
+Route::get('employee/leavetype/view', [EmployeeleaveTypeController::class, 'ViewEmployeeleavetype'])->name('employee.leavetype.view');
+Route::get('employee/leavetype/add', [EmployeeleaveTypeController::class, 'EmployeeleavetypeAdd'])->name('employee.leavetype.add');
+Route::post('employee/leavetype/store', [EmployeeleaveTypeController::class, 'EmployeeleavetypeStore'])->name('employee.store.leavetype');
+Route::get('employee/leavetype/edit/{id}', [EmployeeleaveTypeController::class, 'EmployeeleavetypeEdit'])->name('employee.leavetype.edit');
+Route::post('employee/leavetype/update/{id}', [EmployeeleaveTypeController::class, 'EmployeeleavetypeUpdate'])->name('employee.update.leavetype');
+Route::get('employee/leavetype/delete/{id}', [EmployeeleaveTypeController::class, 'EmployeeleavetypeDelete'])->name('employee.leavetype.delete');
+
+
+});
 
 
 
@@ -1135,19 +1151,6 @@ Route::post('employee/department/update/{id}', [EmployeeDepartmentController::cl
 Route::get('employee/department/delete/{id}', [EmployeeDepartmentController::class, 'EmployeeDepartmentDelete'])->name('employee.department.delete');
 
 
-//Employee Leave Type Route
-
-Route::get('employee/leavetype/view', [EmployeeleaveTypeController::class, 'ViewEmployeeleavetype'])->name('employee.leavetype.view');
-
-Route::get('employee/leavetype/add', [EmployeeleaveTypeController::class, 'EmployeeleavetypeAdd'])->name('employee.leavetype.add');
-
-Route::post('employee/leavetype/store', [EmployeeleaveTypeController::class, 'EmployeeleavetypeStore'])->name('employee.store.leavetype');
-
-Route::get('employee/leavetype/edit/{id}', [EmployeeleaveTypeController::class, 'EmployeeleavetypeEdit'])->name('employee.leavetype.edit');
-
-Route::post('employee/leavetype/update/{id}', [EmployeeleaveTypeController::class, 'EmployeeleavetypeUpdate'])->name('employee.update.leavetype');
-
-Route::get('employee/leavetype/delete/{id}', [EmployeeleaveTypeController::class, 'EmployeeleavetypeDelete'])->name('employee.leavetype.delete');
 
 // Designation All Routes 
 
@@ -1550,6 +1553,14 @@ Route::get('classrooms/delete/{id}', [ClassRoomController::class, 'Delete'])->na
 // Route::get('subjectgroup/delete/{id}', [SubjectGroupController::class, 'SubjectGroupDelete'])->name('subjectgroup.delete');
 
 
+// Assign Subject
+Route::get('assign/subject/view', [AssignSubjectController::class, 'ViewAssignSubject'])->name('assign.subject.view');
+Route::get('assign/subject/add', [AssignSubjectController::class, 'AddAssignSubject'])->name('assign.subject.add');
+Route::post('assign/subject/store', [AssignSubjectController::class, 'StoreAssignSubject'])->name('store.assign.subject');
+Route::get('assign/subject/edit/{class_id}', [AssignSubjectController::class, 'EditAssignSubject'])->name('assign.subject.edit');
+Route::post('assign/subject/update/{class_id}', [AssignSubjectController::class, 'UpdateAssignSubject'])->name('update.assign.subject');
+Route::get('assign/subject/details/{class_id}', [AssignSubjectController::class, 'DetailsAssignSubject'])->name('assign.subject.details');
+
 
 //Subjects Academic Routes 
 
@@ -1634,10 +1645,6 @@ Route::get('/complaintcommittee/delete/{id}',[ComplaintcommitteeController::clas
 Route::get('manage_alumni',[AlumniController::class,'manageAlumni'])->name('manage_alumni');
 Route::get('alumni_view',[AlumniController::class,'alumniView'])->name('alumni_view');
 
-
-Route::get('manage_events',[AlumniController::class,'manageEvents'])->name('manage_events');
-Route::get('new_event',[AlumniController::class,'newEvent'])->name('new_event');
-Route::get('delete_event,{id}',[AlumniController::class,'deleteEvent'])->name('delete_event');
 
 // SyndicateController add route
 Route::get('/syndicate/index',[SyndicateController::class,'index'])->name('syndicate.index');

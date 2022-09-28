@@ -2,21 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="public/backend/images/favicon.ico">
-
-    <title>Easy ERP - Log in </title>
-  
-    <!-- Vendors Style-->
-    <link rel="stylesheet" href="{{ asset('public/backend/css/vendors_css.css') }}">
-      
-    <!-- Style-->  
-    <link rel="stylesheet" href="{{ asset('public/backend/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/backend/css/skin_color.css') }}">   
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="public/backend/images/favicon.ico">
+  <title>Easy ERP - Log in </title>
+  <!-- Vendors Style-->
+  <link rel="stylesheet" href="{{ asset('public/backend/css/vendors_css.css') }}">
+  <!-- Style-->  
+  <link rel="stylesheet" href="{{ asset('public/backend/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/backend/css/skin_color.css') }}">   
 </head>
 <body class="hold-transition theme-primary bg-gradient-primary">
     
@@ -40,16 +36,16 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text bg-transparent text-white"><i class="ti-user"></i></span>
                 </div>
-       <input type="email" id="email" name="email" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Username">
+                <input type="email" id="email" name="email" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Username">
             </div>
         </div>
         <div class="form-group">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text  bg-transparent text-white"><i class="ti-lock"></i></span>
-                </div>
-  <input type="password" id="password" name="password" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Password">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text  bg-transparent text-white"><i class="ti-lock"></i></span>
             </div>
+            <input type="password" id="password" name="password" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Password">
+          </div>
         </div>
           <div class="row">
             <div class="col-6">

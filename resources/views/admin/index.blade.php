@@ -421,5 +421,4 @@
 		<!-- /.content -->
 	  </div>
   </div>
-
   @endsection

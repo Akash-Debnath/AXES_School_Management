@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <link rel="icon" href="{{asset('public/backend/images/favicon.ico')}}">
 
-  <title> RMU University Management System - Dashboard</title>
+  <title>RMU University Management System - Dashboard</title>
 
   <!-- Vendors Style-->
   <link rel="stylesheet" href="{{ asset('/public/backend/css/vendors_css.css') }}">
@@ -87,8 +87,6 @@
             )
           }
         })
-
-
       });
 
     });
@@ -99,8 +97,6 @@
     $(document).on('click', '#added', function(e) {
       e.preventDefault();
       var link = $(this).attr("href");
-
-
       Swal.fire({
         title: 'Are you sure?',
         text: "Add This Data?",
@@ -119,10 +115,7 @@
           )
         }
       })
-
-
     });
-
   });
 </script>
 
@@ -131,29 +124,21 @@
 
   <script>
     @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type','info') }}"
-    switch (type) {
-      case 'info':
-        toastr.info(" {{ Session::get('message') }} ");
+      var type = "{{ Session::get('alert-type','info') }}"
+      switch (type) {
+        case 'info':toastr.info(" {{ Session::get('message') }} ");
         break;
 
-      case 'success':
-        toastr.success(" {{ Session::get('message') }} ");
+        case 'success':toastr.success(" {{ Session::get('message') }} ");
         break;
 
-      case 'warning':
-        toastr.warning(" {{ Session::get('message') }} ");
+        case 'warning':toastr.warning(" {{ Session::get('message') }} ");
         break;
 
-      case 'error':
-        toastr.error(" {{ Session::get('message') }} ");
+        case 'error':toastr.error(" {{ Session::get('message') }} ");
         break;
-    }
+      }
     @endif
   </script>
-
-
-
 </body>
-
 </html>
