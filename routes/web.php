@@ -191,45 +191,55 @@ use App\Http\Controllers\Frontend\User\PrivacyController ;
 use App\Http\Controllers\Frontend\User\UserBotController ;
 use App\Http\Controllers\Frontend\User\FaqController ;
 use App\Http\Controllers\Frontend\User\MessagefromchairmanController ;
- use App\Http\Controllers\Frontend\User\MessagefromfounderController ;
-  use App\Http\Controllers\Frontend\User\MessagefromvicechancellorController ;
-  use App\Http\Controllers\Frontend\User\Brief_history_rmuController ;
-  use App\Http\Controllers\Frontend\User\DepartmentbanglaController ;
-  use App\Http\Controllers\Frontend\User\DepartmentenglishController ;
-  use App\Http\Controllers\Frontend\User\PhysicalEducationandsportsscienceController ;
-  use App\Http\Controllers\Frontend\User\IctController;
-  use App\Http\Controllers\Frontend\User\CseController;
-  use App\Http\Controllers\Frontend\User\AgricultureController;
-  use App\Http\Controllers\Frontend\User\EeeController;
-  use App\Http\Controllers\Frontend\User\MicrobiologyController;
-  use App\Http\Controllers\Frontend\User\BusinessAdministrationController ;
+use App\Http\Controllers\Frontend\User\MessagefromfounderController ;
+use App\Http\Controllers\Frontend\User\MessagefromvicechancellorController ;
+use App\Http\Controllers\Frontend\User\Brief_history_rmuController ;
+use App\Http\Controllers\Frontend\User\DepartmentbanglaController ;
+use App\Http\Controllers\Frontend\User\DepartmentenglishController ;
+use App\Http\Controllers\Frontend\User\PhysicalEducationandsportsscienceController ;
+use App\Http\Controllers\Frontend\User\IctController;
+use App\Http\Controllers\Frontend\User\CseController;
+use App\Http\Controllers\Frontend\User\AgricultureController;
+use App\Http\Controllers\Frontend\User\EeeController;
+use App\Http\Controllers\Frontend\User\MicrobiologyController;
+use App\Http\Controllers\Frontend\User\BusinessAdministrationController;
 
-  use App\Http\Controllers\Frontend\User\EligibilityController;
-  use App\Http\Controllers\Frontend\User\FinanceCommitteeController;
-  use App\Http\Controllers\Frontend\User\UserAcademicCouncilController;
-  use App\Http\Controllers\Frontend\User\UserSyndicateController;
-  use App\Http\Controllers\Frontend\User\UserDisciplinarycommitteeController;
-  use App\Http\Controllers\Frontend\User\UserComplaintcommitteeController;
-  use App\Http\Controllers\Frontend\User\UserDeanofthefacultiesController;
-  use App\Http\Controllers\Frontend\User\UserAdministrationController;
-  use App\Http\Controllers\Frontend\User\DeanofthefacultiesController;
-  
-  use App\Http\Controllers\Frontend\User\TuitionfeeController;
-  use App\Http\Controllers\Frontend\User\WaiverpolicyController;
-  use App\Http\Controllers\Frontend\User\ScholarshipandfinancialaidsController;
-  use App\Http\Controllers\Frontend\User\AvailableprogramsController;
+use App\Http\Controllers\Frontend\User\EligibilityController;
+use App\Http\Controllers\Frontend\User\FinanceCommitteeController;
+use App\Http\Controllers\Frontend\User\UserAcademicCouncilController;
+use App\Http\Controllers\Frontend\User\UserSyndicateController;
+use App\Http\Controllers\Frontend\User\UserDisciplinarycommitteeController;
+use App\Http\Controllers\Frontend\User\UserComplaintcommitteeController;
+use App\Http\Controllers\Frontend\User\UserDeanofthefacultiesController;
+use App\Http\Controllers\Frontend\User\UserAdministrationController;
+use App\Http\Controllers\Frontend\User\DeanofthefacultiesController;
+
+use App\Http\Controllers\Frontend\User\TuitionfeeController;
+use App\Http\Controllers\Frontend\User\WaiverpolicyController;
+use App\Http\Controllers\Frontend\User\ScholarshipandfinancialaidsController;
+use App\Http\Controllers\Frontend\User\AvailableprogramsController;
   
 use App\Http\Controllers\Backend\Website\Socialgroup\SocialgroupController;
 use App\Http\Controllers\Backend\Website\Contact\ContactController;
+// use App\Http\Controllers\Backend\Website\Contact\ContactController;
 
-  
+
 use App\Http\Controllers\Backend\AlumniController;
 
 
-    //Student
+//Student
+// use App\Http\Controllers\StudentController;
 
 
-use App\Http\Controllers\StudentController;
+// Student Portal 
+use App\Http\Controllers\user\Student\StudentController;
+use App\Http\Controllers\user\Student\StudentDashboardController;
+
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -274,8 +284,6 @@ Route::get('/allfaculty',[UserhomeController::class,'Allfaculty'])->name('allfac
 Route::get('/facultydetails/{id}',[UserhomeController::class,'Facultydetails'])->name('facultydetails');
 
 
-
-Route::get('/studentlogin',[StudentloginController::class,'studentlogin'])->name('studentlogin');
 Route::get('/about',[AboutController::class,'about'])->name('about');
 
 Route::get('/register',[RegisterController::class,'register'])->name('register');
@@ -306,8 +314,10 @@ Route::get('/availableprograms',[AvailableprogramsController::class,'availablepr
 /// Home Contact Page Route 
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
-Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
-Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
+// Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'contactForm'])->name('contact-form');
+// Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeContactForm'])->name('contact-form.store');
+Route::get('/contact-form', [ContactController::class, 'contactForm'])->name('contact-form');
+Route::post('/contact-form', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
 
 
 //Newsevent User 
@@ -335,12 +345,9 @@ Route::get('/addmission',[onlineadmissionController::class,'onlineadd'])->name('
 Route::get('/confirmapplication',[onlineadmissionController::class,'confirmmess'])->name('confirmmess');
 Route::get('/applyaddmission',[onlineadmissionController::class,'applyaddmission'])->name('applyaddmission');
 Route::post('/storeinfo',[onlineadmissionController::class,'infostore'])->name('infostore');
-
 Route::get('/approve/{id}', [OnlineinfoController::class, 'Approve'])->name('onlineapp.approve');
 Route::get('/reject/{id}', [OnlineinfoController::class, 'Reject'])->name('onlineapp.reject');
-
 Route::get('/enroll/{id}', [OnlineinfoController::class, 'Enroll'])->name('onlineapp.enroll');
-
 Route::get('/details/{id}', [OnlineinfoController::class, 'details'])->name('onlineapp.view.details');
 
 
@@ -375,16 +382,31 @@ Route::get('/health',function(){
 
 //student portal route
 
+// Route::get('/student', function () {
+//     return view('student.index');
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/studentdashboard', function () {
+//     return view('student.index');
+// })->name('studentdashboard');
+
+// Route::get('/student/logout', [StudentController::class, 'Logout'])->name('student.logout');
+ 
+
+
+// Student Portal routes and middleware
+Route::get('/studentlogin',[StudentloginController::class,'studentlogin'])->name('studentlogin');
+Route::get('/student/logout',[StudentController::class,'Logout'])->name('studentlogout');
 Route::get('/student', function () {
-    return view('student.index');
+    return view('studentauth.login');
+});
+Route::post('studentportal/login',[StudentloginController::class,'StudentPortalLogin'])->name('studentportallogin');
+
+Route::group(['middleware'=>'student'], function(){
+    Route::get('/student/dashboard', [StudentDashboardController::class, 'dashboard'])->name('student.dashboard');
+
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/studentdashboard', function () {
-    return view('student.index');
-})->name('studentdashboard');
-
-Route::get('/student/logout', [StudentController::class, 'Logout'])->name('student.logout');
- 
 
 
 
@@ -393,77 +415,52 @@ Route::get('/admin', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-     return redirect()->route('admin.dashboard');
+    return redirect()->route('admin.dashboard');
 })->name('dashboard');
 
-Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.logout');
- 
- 
+Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.logout'); 
 Route::group(['middleware' => 'auth'],function(){
-
 Route::prefix('dashboard')->group(function(){
-
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
-    
 }); 
 
 //AdmissionEnquiry FrontOffice Routes 
 
 Route::get('admissionenquiry/view', [AdmissionEnquiryController::class, 'ViewAdmissionEnquiry'])->name('admissionenquiry.view');
-
 Route::get('admissionenquiry/add', [AdmissionEnquiryController::class, 'AdmissionEnquiryAdd'])->name('admissionenquiry.add');
-
 Route::post('admissionenquiry/store', [AdmissionEnquiryController::class, 'AdmissionEnquiryStore'])->name('store.admissionenquiry');
-
 Route::get('admissionenquiry/edit/{id}', [AdmissionEnquiryController::class, 'AdmissionEnquiryEdit'])->name('admissionenquiry.edit');
-
 Route::put('admissionenquiry/update/{id}', [AdmissionEnquiryController::class, 'AdmissionEnquiryUpdate'])->name('update.admissionenquiry');
-
 Route::get('admissionenquiry/delete/{id}', [AdmissionEnquiryController::class, 'AdmissionEnquiryDelete'])->name('admissionenquiry.delete');
 
 
 //Complain FrontOffice Routes 
 
 Route::get('complain/view', [ComplainController::class, 'ViewComplain'])->name('complain.view');
-
 Route::get('complain/add', [ComplainController::class, 'ComplainAdd'])->name('complain.add');
-
 Route::post('complain/store', [ComplainController::class, 'ComplainStore'])->name('store.complain');
-
 Route::get('complain/edit/{id}', [ComplainController::class, 'ComplainEdit'])->name('complain.edit');
-
 Route::post('complain/update/{id}', [ComplainController::class, 'ComplainUpdate'])->name('update.complain');
-
 Route::get('complain/delete/{id}', [ComplainController::class, 'ComplainDelete'])->name('complain.delete');
 
 
 //PhoneCallLog Frontoffice Routes 
 
 Route::get('phonecalllog/view', [PhoneCallLogController::class, 'ViewPhoneCallLog'])->name('phonecalllog.view');
-
 Route::get('phonecalllog/add', [PhoneCallLogController::class, 'PhoneCallLogAdd'])->name('phonecalllog.add');
-
 Route::post('phonecalllog/store', [PhoneCallLogController::class, 'PhoneCallLogStore'])->name('store.phonecalllog');
-
 Route::get('phonecalllog/edit/{id}', [PhoneCallLogController::class, 'PhoneCallLogEdit'])->name('phonecalllog.edit');
-
 Route::put('phonecalllog/update/{id}', [PhoneCallLogController::class, 'PhoneCallLogUpdate'])->name('update.phonecalllog');
-
 Route::get('phonecalllog/delete/{id}', [PhoneCallLogController::class, 'PhoneCallLogDelete'])->name('phonecalllog.delete');
 
 
 
 
 Route::get('newsevents/view', [NewseventsController::class, 'ViewNewsevents'])->name('newsevent.view');
-
 Route::get('newsevents/create', [NewseventsController::class, 'NewseventsAdd'])->name('newsevent.add');
-
 Route::post('newsevents/store', [NewseventsController::class, 'NewseventsStore'])->name('newsevent.store');
-
 Route::get('newsevents/edit/{id}', [NewseventsController::class, 'NewseventsEdit'])->name('newsevent.edit');
-
 Route::put('newsevents/update{id}', [NewseventsController::class, 'NewseventsUpdate'])->name('newsevent.update');
-
 Route::get('newsevents/delete/{id}', [NewseventsController::class, 'newseventDelete'])->name('newsevent.delete');
 
 
@@ -471,15 +468,10 @@ Route::get('newsevents/delete/{id}', [NewseventsController::class, 'newseventDel
 //VisitorBook FrontOffice Routes 
 
 Route::get('visitorsays/view', [VisitorsaysController::class, 'ViewVisitorsays'])->name('visitorsays.view');
-
 Route::get('visitorsays/add', [VisitorsaysController::class, 'VisitorsaysAdd'])->name('visitorsays.add');
-
 Route::post('visitorsays/store', [VisitorsaysController::class, 'VisitorsaysStore'])->name('visitorsays.store');
-
 Route::get('visitorsays/edit/{id}', [VisitorsaysController::class, 'VisitorsaysEdit'])->name('visitorsays.edit');
-
 Route::put('visitorsays/update/{id}', [VisitorsaysController::class, 'VisitorsaysUpdate'])->name('update.visitorsays');
-
 Route::get('visitorsays/delete/{id}', [VisitorsaysController::class, 'VisitorsaysDelete'])->name('visitorsays.delete');
 
 
@@ -487,15 +479,10 @@ Route::get('visitorsays/delete/{id}', [VisitorsaysController::class, 'Visitorsay
 //SetupFrontOffice FrontOffice Routes 
 
 Route::get('setupfrontoffice/view', [SetupFrontOfficeController::class, 'ViewSetupFrontOffice'])->name('setupfrontoffice.view');
-
 Route::get('setupfrontoffice/add', [SetupFrontOfficeController::class, 'SetupFrontOfficeAdd'])->name('setupfrontoffice.add');
-
 Route::post('setupfrontoffice/store', [SetupFrontOfficeController::class, 'SetupFrontOfficeStore'])->name('store.setupfrontoffice');
-
 Route::get('setupfrontoffice/edit/{id}', [SetupFrontOfficeController::class, 'SetupFrontOfficeEdit'])->name('setupfrontoffice.edit');
-
 Route::post('setupfrontoffice/update/{id}', [SetupFrontOfficeController::class, 'SetupFrontOfficeUpdate'])->name('update.setupfrontoffice');
-
 Route::get('setupfrontoffice/delete/{id}', [SetupFrontOfficeController::class, 'SetupFrontOfficeDelete'])->name('setupfrontoffice.delete');
 
 
@@ -567,7 +554,7 @@ Route::prefix('addmission')->group(function(){
 
     Route::get('/onlineapplication/view', [OnlineinfoController::class, 'OnlineapplicationView'])->name('onlineapplication.viewlist');
     
-    }); 
+}); 
 
 
 
@@ -630,46 +617,32 @@ Route::prefix('hostel')->group(function(){
 //Hostel Hostel Routes 
 
 Route::get('/hostel/hosteldetail/view', [HostelController::class, 'ViewHostel'])->name('hostel.hosteldetail.view');
-
 Route::get('/hostel/hosteldetail/add', [HostelController::class, 'HostelAdd'])->name('hostel.hosteldetail.add');
-
 Route::post('/hostel/hosteldetail/store', [HostelController::class, 'HostelStore'])->name('store.hostel.hosteldetail');
-
 Route::get('/hostel/hosteldetail/edit/{id}', [HostelController::class, 'HostelEdit'])->name('hostel.hosteldetail.edit');
-
 Route::post('/hostel/hosteldetail/update/{id}', [HostelController::class, 'HostelUpdate'])->name('update.hostel');
-
 Route::get('/hostel/hosteldetail/delete/{id}', [HostelController::class, 'HostelDelete'])->name('hostel.hosteldetail.delete');
 
 
 //HostelRooms Hostel Routes 
 
 Route::get('/hostelroom/view', [HostelRoomController::class, 'ViewHostelRoom'])->name('hostelroom.view');
-
 Route::get('/hostelroom/add', [HostelRoomController::class, 'HostelRoomAdd'])->name('hostelroom.add');
-
 Route::post('/hostelroom/store', [HostelRoomController::class, 'HostelRoomStore'])->name('store.hostelroom');
-
 Route::get('/hostelroom/edit/{id}', [HostelRoomController::class, 'HostelRoomEdit'])->name('hostelroom.edit');
-
 Route::put('/hostelroom/update/{id}', [HostelRoomController::class, 'HostelRoomUpdate'])->name('update.hostelroom');
-
 Route::get('/hostelroom/delete/{id}', [HostelRoomController::class, 'HostelRoomDelete'])->name('hostelroom.delete');
 
 
 //RoomType Hostel Routes 
 
 Route::get('roomtype/view', [RoomTypeController::class, 'ViewRoomType'])->name('roomtype.view');
-
 Route::get('roomtype/add', [RoomTypeController::class, 'RoomTypeAdd'])->name('roomtype.add');
-
 Route::post('roomtype/store', [RoomTypeController::class, 'RoomTypeStore'])->name('store.roomtype');
-
 Route::get('roomtype/edit/{id}', [RoomTypeController::class, 'RoomTypeEdit'])->name('roomtype.edit');
-
 Route::put('roomtype/update/{id}', [RoomTypeController::class, 'RoomTypeUpdate'])->name('update.roomtype');
-
 Route::get('roomtype/delete/{id}', [RoomTypeController::class, 'RoomTypeDelete'])->name('roomtype.delete');
+
 });
 
 
@@ -677,79 +650,54 @@ Route::prefix('setups')->group(function(){
 
 // Student Class Routes 
 Route::get('student/class/view', [StudentClassController::class, 'ViewStudent'])->name('student.class.view');
-
 Route::get('student/class/add', [StudentClassController::class, 'StudentClassAdd'])->name('student.class.add');
-
 Route::post('student/class/store', [StudentClassController::class, 'StudentClassStore'])->name('store.student.class');
-
 Route::get('student/class/edit/{id}', [StudentClassController::class, 'StudentClassEdit'])->name('student.class.edit');
-
 Route::post('student/class/update/{id}', [StudentClassController::class, 'StudentClassUpdate'])->name('update.student.class');
-
 Route::get('student/class/delete/{id}', [StudentClassController::class, 'StudentClassDelete'])->name('student.class.delete');
+
 
 // Student Semester Routes 
 Route::get('student/semester/view', [StudentSemesterController::class, 'ViewStudent'])->name('student.semester.view');
-
 Route::get('student/semester/add', [StudentSemesterController::class, 'StudentSemesterAdd'])->name('student.semester.add');
-
 Route::post('student/semester/store', [StudentSemesterController::class, 'StudentSemesterStore'])->name('store.student.semester');
-
 Route::get('student/semester/edit/{id}', [StudentSemesterController::class, 'StudentSemesterEdit'])->name('student.semester.edit');
-
 Route::post('student/semester/update/{id}', [StudentSemesterController::class, 'StudentSemesterUpdate'])->name('update.student.semester');
-
 Route::get('student/semester/delete/{id}', [StudentSemesterController::class, 'StudentSemesterDelete'])->name('student.semester.delete');
 
 
 // Student Year Routes 
 
 Route::get('student/year/view', [StudentYearController::class, 'ViewYear'])->name('student.year.view');
-
 Route::get('student/year/add', [StudentYearController::class, 'StudentYearAdd'])->name('student.year.add');
-
 Route::post('student/year/store', [StudentYearController::class, 'StudentYearStore'])->name('store.student.year');
-
 Route::get('student/year/edit/{id}', [StudentYearController::class, 'StudentYearEdit'])->name('student.year.edit');
-
 Route::post('student/year/update/{id}', [StudentYearController::class, 'StudentYearUpdate'])->name('update.student.year');
-
 Route::get('student/year/delete/{id}', [StudentYearController::class, 'StudentYearDelete'])->name('student.year.delete');
 
 
 // // Student Group Routes 
 
 // Route::get('student/group/view', [StudentGroupController::class, 'ViewGroup'])->name('student.group.view');
-
 // Route::get('student/group/add', [StudentGroupController::class, 'StudentGroupAdd'])->name('student.group.add');
-
 // Route::post('student/group/store', [StudentGroupController::class, 'StudentGroupStore'])->name('store.student.group');
-
 // Route::get('student/group/edit/{id}', [StudentGroupController::class, 'StudentGroupEdit'])->name('student.group.edit');
-
 // Route::post('student/group/update/{id}', [StudentGroupController::class, 'StudentGroupUpdate'])->name('update.student.group');
-
 // Route::get('student/group/delete/{id}', [StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete');
 
 // Student Shift Routes 
 
 Route::get('student/shift/view', [StudentShiftController::class, 'ViewShift'])->name('setup.shift.view');
-
 Route::get('student/shift/add', [StudentShiftController::class, 'StudentShiftAdd'])->name('setup.shift.add');
-
 Route::post('student/shift/store', [StudentShiftController::class, 'StudentShiftStore'])->name('store.setup.shift');
-
 Route::get('student/shift/edit/{id}', [StudentShiftController::class, 'StudentShiftEdit'])->name('setup.shift.edit');
-
 Route::post('student/shift/update/{id}', [StudentShiftController::class, 'StudentShiftUpdate'])->name('update.setup.shift');
-
 Route::get('student/shift/delete/{id}', [StudentShiftController::class, 'StudentShiftDelete'])->name('setup.shift.delete');
 
 
 // Fee Category Routes 
 
 Route::get('fee/category/view', [FeeCategoryController::class, 'ViewFeeCat'])->name('fee.category.view');
-
 Route::get('fee/category/add', [FeeCategoryController::class, 'FeeCatAdd'])->name('fee.category.add');
 
 Route::post('fee/category/store', [FeeCategoryController::class, 'FeeCatStore'])->name('store.fee.category');
@@ -1565,18 +1513,12 @@ Route::get('assign/subject/details/{class_id}', [AssignSubjectController::class,
 //Subjects Academic Routes 
 
 Route::get('subjects/view', [SchoolSubjectController::class, 'ViewSubject'])->name('subjects.view');
-
-// Route::get('subjects/view', [SubjectsController::class, 'ViewSubjects'])->name('subjects.view');
-
-// Route::get('subjects/add', [SubjectsController::class, 'SubjectsAdd'])->name('subjects.add');
-
-// Route::post('subjects/store', [SubjectsController::class, 'SubjectsStore'])->name('store.subjects');
-
-// Route::get('subjects/edit/{id}', [SubjectsController::class, 'SubjectsEdit'])->name('subjects.edit');
-
-// Route::post('subjects/update/{id}', [SubjectsController::class, 'SubjectsUpdate'])->name('update.subjects');
-
-// Route::get('subjects/delete/{id}', [SubjectsController::class, 'SubjectsDelete'])->name('subjects.delete');
+Route::get('subjects/view', [SubjectsController::class, 'ViewSubjects'])->name('subjects.view');
+Route::get('subjects/add', [SubjectsController::class, 'SubjectsAdd'])->name('subjects.add');
+Route::post('subjects/store', [SubjectsController::class, 'SubjectsStore'])->name('store.subjects');
+Route::get('subjects/edit/{id}', [SubjectsController::class, 'SubjectsEdit'])->name('subjects.edit');
+Route::post('subjects/update/{id}', [SubjectsController::class, 'SubjectsUpdate'])->name('update.subjects');
+Route::get('subjects/delete/{id}', [SubjectsController::class, 'SubjectsDelete'])->name('subjects.delete');
 }); 
 
 

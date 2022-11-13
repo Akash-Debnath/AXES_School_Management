@@ -34,7 +34,10 @@
     @yield('student')
     <!-- /.content-wrapper -->
 
-    @include('student.body.footer')
+
+    {{-- Footer showing in navbar so I commented it --}}
+    {{-- @include('student.body.footer') --}} 
+
 
     <div class="control-sidebar-bg"></div>
 

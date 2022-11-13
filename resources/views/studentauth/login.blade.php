@@ -30,17 +30,45 @@
                             <h2 class="text-white">Get started with Us</h2>
                             <p class="text-white-50">Sign in to start your session</p>                          
                         </div>
-                        <div class="p-30 rounded30 box-shadowed b-2 b-dashed">
+                        {{-- Error / Success Message --}}
+                        <div class="row">
+                          <div class="col-12">
+                            @if ($errors->any())
+                                <div class="w-100 alert alert-warning alert-dismissible fade show" id="failMsg" role="alert">
+                                    <strong>{{ implode('', $errors->all(':message')) }}</strong>
+                                    <button type="button" class="close" role="alert" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @elseif ($message = Session::get('success'))
+                                <div class="w-100 alert alert-success alert-dismissible fade show" id="successMsg" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                    <button type="button" class="close" role="alert" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @elseif ($message = Session::get('fail'))
+                                <div class="w-100 alert alert-warning alert-dismissible fade show" id="failMsg" role="alert">
+                                    <strong> {{ $message }} </strong>
+                                    <button type="button" class="close" role="alert" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @endif
+                          </div>
+                        </div>
+                        {{-- End error / success message --}}
+                      <div class="p-30 rounded30 box-shadowed b-2 b-dashed">
    
-     <form method="POST" action="{{ route('login') }}">
-            @csrf
+     <form method="POST" action="{{ url('studentportal/login') }}">
+        @csrf
 
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text bg-transparent text-white"><i class="ti-user"></i></span>
                 </div>
-       <input type="email" id="email" name="email" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Username">
+       <input type="email" id="email" name="email" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Username" required>
             </div>
         </div>
         <div class="form-group">
@@ -48,7 +76,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text  bg-transparent text-white"><i class="ti-lock"></i></span>
                 </div>
-  <input type="password" id="password" name="password" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Password">
+        <input type="password" id="password" name="password" class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Password" required>
             </div>
         </div>
           <div class="row">
@@ -70,7 +98,7 @@
             </div>
             <!-- /.col -->
           </div>
-    </form>                                                     
+      </form>                                                     
 
     <div class="text-center text-white">
       <p class="mt-20">- Sign With -</p>

@@ -303,24 +303,21 @@
 									   <th width="30%">Amount</th> 
 									   <th width="50%">Note</th> 
 									   <th width="15%">Action</th>
-									   
 								   </tr>
 							   </thead>
 							   <tbody>
 									@foreach($lastexpenses as $key => $expense )
-								   <tr>
-									   <td>{{ $key+1 }}</td>
-									   <td> {{ $expense->voucher_no }}</td>
-									   <td> {{ $expense->date }}</td>
-									   <td> {{ $expense->amount }}</td>
-									   <td> {{ $expense->note }}</td>				 
-									   <td>
-										   {{-- <a href="{{ route('account.ledger.edit',$ledger->id) }}" class="btn btn-info">Edit</a> --}}
-										   <a href="{{ route('account.expensevoucher.delete',$expense->voucher_no) }}" class="btn btn-danger" id="delete">Delete</a>
-	   
-									   </td>
-									   
-								   </tr>
+										<tr>
+											<td>{{ $key+1 }}</td>
+											<td> {{ $expense->voucher_no }}</td>
+											<td> {{ $expense->date }}</td>
+											<td> {{ $expense->amount }}</td>
+											<td> {{ $expense->note }}</td>				 
+											<td>
+												{{-- <a href="{{ route('account.ledger.edit',$ledger->id) }}" class="btn btn-info">Edit</a> --}}
+												<a href="{{ route('account.expensevoucher.delete',$expense->voucher_no) }}" class="btn btn-danger" id="delete">Delete</a>
+											</td>
+										</tr>
 								   @endforeach 
 				   
 									
@@ -332,12 +329,10 @@
 						   </div>
 					   </div>
 					   <!-- /.box-body -->
-					 </div>
-					 <!-- /.box -->
-	   
-						  
-				   </div>
-				   <!-- /.col -->
+					</div>
+					<!-- /.box -->
+				</div>
+				<!-- /.col -->
 				
  
  

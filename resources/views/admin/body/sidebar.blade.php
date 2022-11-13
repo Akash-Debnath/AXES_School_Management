@@ -435,6 +435,7 @@
                 
 
 
+
                 @if(Auth::user()->role == 'Admin')
                 <li class="treeview {{ ($prefix == '/users')?'active':'' }} ">
                     <a href="#">
@@ -566,8 +567,6 @@
                         <li class=""><a href=""><i class="ti-more"></i>Create Expenses</a></li>
                         <li class=""><a href=""><i class="ti-more"></i>Expenses Head</a></li>
                         <li class=""><a href=""><i class="ti-more"></i>Add Expenses Head</a></li>
-
-
                     </ul>
                 </li> --}}
 
@@ -679,7 +678,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li class=""><a href="{{route('general_setting')}}"><i class="ti-more"></i>General Setting</a></li>
-{{--                        <li class=""><a href="{{route('general_list')}}"><i class="ti-more"></i>General list</a></li>--}}
+                        {{--                        <li class=""><a href="{{route('general_list')}}"><i class="ti-more"></i>General list</a></li>--}}
                         <li class=""><a href="{{route('session_setting')}}"><i class="ti-more"></i>Session Setting</a></li>
                         <li class=""><a href="{{route('notification_setting')}}"><i class="ti-more"></i>Notification Setting</a></li>
                         <li class=""><a href="{{route('sms_setting')}}"><i class="ti-more"></i>SMS Setting</a></li>
@@ -705,7 +704,6 @@
                     </ul>
                 </li>
                 
-               
             </ul>
         </section>
 

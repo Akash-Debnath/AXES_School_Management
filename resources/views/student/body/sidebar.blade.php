@@ -24,28 +24,125 @@
             <!-- sidebar menu-->
             <ul class="sidebar-menu" data-widget="tree">
 
-                <li class="{{ ($route == 'dashboard')?'active':'' }}">
-                    <a href="{{ route('dashboard') }}">
+                <li class="{{ ($route == 'student.dashboard')?'active':'' }}">
+                    <a href="{{ url('student/dashboard') }}">
                         <i data-feather="pie-chart"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                @if('Admin' == 'Admin')
+                {{-- @if('Admin' == 'Admin')
                 <li class="{{ ($prefix == '/users')?'active':'' }} ">
                     <a href="#">
                         <i data-feather="message-circle"></i>
-                        <span>Profile</span>
+                        <span>All Students</span>
                     </a>
                 </li>
-                @endif
+                @endif --}}
 
                 <li class="{{ ($prefix == '/profile')?'active':'' }}">
                     <a href="#">
-                        <i data-feather="grid"></i> <span>Profile Update</span>
+                        <i data-feather="grid"></i> <span>Profile</span>
                     </a>
                 </li>
 
+
+                <li class="{{ ($prefix == '/setups')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="credit-card"></i> <span>Fees</span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/certificate')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span> Class Routine </span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/homeworks')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Home Work</span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/downloads')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Downloads</span>
+                    </a>
+                </li>
+
+
+
+                <li class="{{ ($prefix == '/attendance')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Attendance</span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/examination')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Examinations</span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/leaves')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Leave</span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/exam')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span> Online Exam </span>
+                    </a>
+                </li>
+
+                <li class="{{ ($prefix == '/notices')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Notice Board</span>
+                    </a>
+                </li>
+
+                <li class="{{ ($prefix == '/subject')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Subjects</span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/teacher')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Teachers </span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/library')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Library </span>
+                    </a>
+                </li>
+
+
+                <li class="{{ ($prefix == '/transport')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Transport </span>
+                    </a>
+                </li>
+
+
+
+                <li class="{{ ($prefix == '/library')?'active':'' }}">
+                    <a href="#">
+                        <i data-feather="edit-2"></i> <span>Results </span>
+                    </a>
+                </li>
 
 
                 <li class="{{ ($prefix == '/setups')?'active':'' }}">
@@ -54,106 +151,9 @@
                     </a>
                 </li>
 
-               
-                <li class="{{ ($prefix == '/students')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="credit-card"></i> <span>Student Information</span>
-                    </a>
-                </li>
-
-                <li class="{{ ($prefix == '/frontoffice')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="credit-card"></i> <span>Payment Ledger</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/facultyinfo')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="credit-card"></i> <span>Payment Scheme</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/addmission')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="credit-card"></i> <span>Registration/Exam Clearance</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/expenses')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Registered Course</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/inventory')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Drop Semester</span>
-                    </a>
-                </li>
-              
-                <li class="{{ ($prefix == '/attendance')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Live Result </span>
-                    </a>
-                </li>
-              
-                <li class="{{ ($prefix == '/communicate')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Teaching Evaluation </span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/inventory')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Alumni Professional</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/homeworks')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Convocation Apply</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/library')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Certificate & Transcript Apply </span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/transport')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span> Online Exam </span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/certificate')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span> Class Routine </span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/alumni')?'active':'' }}">
-                    <a href="{{ route('account.group.index') }}">
-                        <i data-feather="edit-2"></i> <span>Mentor Meetings</span>
-                    </a>
-                </li>
-              
-               
-                <li class="{{ ($prefix == '/accounts')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Result</span>
-                    </a>
-                </li>
-
-               
-                <li class="{{ ($prefix == '/feescollection')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Notices</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/examination')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Student Application</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/humanresource')?'active':'' }}">
-                    <a href="#">
-                        <i data-feather="edit-2"></i> <span>Alumni Card Aply</span>
-                    </a>
-                </li>
-                <li class="{{ ($prefix == '/lessonplan')?'active':'' }}">
-                    <a href="#">
+    
+                <li class="">
+                    <a href="{{ url('student/logout') }}">
                         <i data-feather="edit-2"></i> <span>Logout</span>
                     </a>
                 </li>
