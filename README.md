@@ -6,6 +6,12 @@
 git clone https://github.com/Akash-Debnath/School-Management.git
 ```
 
+### 1.1 Clone from master branch? [As our repository in master]
+
+```
+git clone -b master https://github.com/Akash-Debnath/School-Management.git
+```
+
 ### 2. go to the directory 
 ```
 cd git
@@ -23,7 +29,7 @@ composer update
 
 ### 4. Create .env File
 ```
-copy .env.example as .env [If .env is unavailable]
+copy .env.example as .env   [If .env is unavailable]
 ```
 
 ### 5. Generate Key
