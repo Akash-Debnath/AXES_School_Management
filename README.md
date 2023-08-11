@@ -3,13 +3,13 @@
 ### 1. Clone the repo to htdocs or www folder
 
 ```
-git clone https://github.com/Akash-Debnath/AXES_School_Management.git
+git clone https://github.com/Akash-Debnath/University_Management_System.git
 ```
 
 ### 1.1 Clone from master branch? [As my repository in master]
 
 ```
-git clone -b master https://github.com/Akash-Debnath/AXES_School_Management.git
+git clone -b master https://github.com/Akash-Debnath/University_Management_System.git
 ```
 
 ### 2. go to the directory 
